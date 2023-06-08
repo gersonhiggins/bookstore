@@ -2,14 +2,16 @@ body {
   box-sizing: border-box;
   margin: 0 6.25rem;
   padding: 0;
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background-color: #fafafa;
 }
+
 .menu {
   display: flex;
   align-items: baseline;
   gap: 15px;
 }
+
 a {
   text-decoration: none;
   color: rgb(98, 98, 98);
@@ -18,13 +20,16 @@ a {
 h1 {
   color: #0290ff;
 }
+
 li {
   list-style: none;
 }
+
 ul {
   margin: 0;
   padding: 0;
 }
+
 .book {
   border: 1px solid gray;
   display: flex;
@@ -32,6 +37,7 @@ ul {
   gap: 0;
   padding: 20px;
 }
+
 .remove {
   background-color: inherit;
   border: none;
@@ -40,7 +46,6 @@ ul {
   height: 1.188rem;
   margin: 1.25rem 0.938rem 0.125rem 0;
   padding: 0;
-  font-family: RobotoSlab;
   font-size: 0.875rem;
   font-weight: 300;
   font-stretch: normal;
@@ -50,6 +55,7 @@ ul {
   color: #4386bf;
   cursor: pointer;
 }
+
 .category {
   width: 100%;
   height: 1.125rem;
@@ -63,6 +69,7 @@ ul {
   letter-spacing: normal;
   color: #121212;
 }
+
 .tittle {
   width: 100%;
   height: 1.813rem;
@@ -75,6 +82,7 @@ ul {
   letter-spacing: -0.2px;
   color: #121212;
 }
+
 .author {
   width: 100%;
   height: 1.188rem;
@@ -87,13 +95,15 @@ ul {
   letter-spacing: normal;
   color: #4386bf;
 }
+
 .span {
   display: block;
   width: 100%;
   height: 0.01rem;
   margin: 2.5rem 0.063rem 1.813rem 0;
-  border: solid 1px #e8e8e8 ;
+  border: solid 1px #e8e8e8;
 }
+
 h2 {
   width: 10.875rem;
   height: 1.5rem;
@@ -106,23 +116,27 @@ h2 {
   letter-spacing: -0.18px;
   color: #888;
 }
+
 form {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
+
 .inputs {
   display: flex;
   justify-content: space-between;
 }
+
 input {
   width: 30%;
   height: 2.813rem;
-  padding: 0 10px;  
+  padding: 0 10px;
   border-radius: 4px;
   border: solid 1px var(--white);
   background-color: #fff;
 }
+
 #category {
   padding-left: 20px;
   width: 140px;
@@ -130,6 +144,7 @@ input {
   border: solid 1px var(--white);
   background-color: #fff;
 }
+
 .input-submit {
   width: 11.5rem;
   height: 2.813rem;
@@ -137,5 +152,4 @@ input {
   background-color: #0290ff;
   border: none;
   color: white;
-
 }
