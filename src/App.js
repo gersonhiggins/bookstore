@@ -1,4 +1,3 @@
-import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NavBar from './components/nav';
 import Categories from './components/categories';
@@ -11,7 +10,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/categories" element={<Categories />} />  
+          <Route path="/categories" element={<Categories />} />
         </Routes>
       </BrowserRouter>
     </div>
