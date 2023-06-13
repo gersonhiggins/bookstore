@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-
-import { v4 as uuidv4 } from 'uuid';
+import { useDispatch } from 'react-redux';
+import { addBook, bookArray } from './redux/bookSlice';
 import InputBooks from './logic/bookform';
 import BookList from './logic/booklist';
 
 const Home = () => {
+  const dispatch = useDispatch();
   function getInitialBooks() {
     const temp = localStorage.getItem('books');
     const savedBooks = JSON.parse(temp);
@@ -21,13 +22,8 @@ const Home = () => {
     ]);
   };
   const addBookItem = (cat, tittle, author) => {
-    const newBook = {
-      id: uuidv4(),
-      cat,
-      tittle,
-      author,
-    };
-    setBooks([...books, newBook]);
+    dispatch(addBook(cat, tittle, author));
+    setBooks([...books, bookArray]);
   };
   return (
     <div className="home-page">
