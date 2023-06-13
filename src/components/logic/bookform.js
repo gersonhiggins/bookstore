@@ -48,10 +48,11 @@ const InputBooks = ({ addBookItem }) => {
           />
           <select id="category" name="category" value={cat} onChange={handleCatChange}>
             <option value="" disabled hidden>Category</option>
-            <option>Si-Fi</option>
-            <option value="action">Action</option>
-            <option value="romance">Romance</option>
-            <option value="comedy">Comedy</option>
+            <option value="Ficton">Fiction</option>
+            <option value="Action">Action</option>
+            <option value="Romance">Romance</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Nonficton">Nonfiction</option>
           </select>
           <button type="submit" className="input-submit">ADD BOOK</button>
         </div>
