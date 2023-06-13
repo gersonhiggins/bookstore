@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBook, bookArray } from './redux/bookSlice';
+import { v4 as uuidv4 } from 'uuid';
+import { addBook, removeBook } from './redux/bookSlice';
 import InputBooks from './logic/bookform';
 import BookList from './logic/booklist';
 
@@ -17,13 +18,21 @@ const Home = () => {
     localStorage.setItem('books', temp);
   }, [books]);
   const deleteBook = (id) => {
-    setBooks([
-      ...books.filter((book) => book.id !== id),
-    ]);
+    const remove = dispatch(removeBook(id));
+    const bookStorage = JSON.parse(localStorage.getItem('books'));
+    const filteredBooks = bookStorage.filter((item) => item.id !== id);
+    const temp = JSON.stringify(filteredBooks);
+    localStorage.setItem('books', temp);
+    setBooks([...books, remove.state]);
   };
   const addBookItem = (cat, tittle, author) => {
-    dispatch(addBook(cat, tittle, author));
-    setBooks([...books, bookArray]);
+    const newBook = dispatch(addBook({
+      cat,
+      tittle,
+      author,
+      id: uuidv4(),
+    }));
+    setBooks([...books, newBook.payload]);
   };
   return (
     <div className="home-page">

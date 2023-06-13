@@ -4,7 +4,7 @@ const initialState = {
   categories: [],
 };
 
-export const categories = createSlice({
+export const categoriesSlice = createSlice({
   name: 'categories',
   initialState,
   reducers: {
@@ -15,5 +15,5 @@ export const categories = createSlice({
   },
 });
 
-export const { filterCategories } = categories.actions;
-export default categories.reducer;
+export const { filterCategories } = categoriesSlice.actions;
+export default categoriesSlice.reducer;
