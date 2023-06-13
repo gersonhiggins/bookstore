@@ -1,7 +1,29 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const initial = [
+  {
+    id: 'item1',
+    tittle: 'The Great Gatsby',
+    author: 'John Smith',
+    cat: 'Fiction',
+  },
+  {
+    id: 'item2',
+    tittle: 'Anna Karenina',
+    author: 'Leo Tolstoy',
+    cat: 'Fiction',
+  },
+  {
+    id: 'item3',
+    tittle: 'The Selfish Gene',
+    author: 'Richard Dawkins',
+    cat: 'Nonfiction',
+  },
+];
+const temp = JSON.stringify(initial);
+localStorage.setItem('books', temp);
 const initialState = {
-  books: [],
+  bookItems: JSON.parse(localStorage.getItem('books')),
 };
 
 export const bookSlice = createSlice({
@@ -9,10 +31,11 @@ export const bookSlice = createSlice({
   initialState,
   reducers: {
     addBook: (state, action) => {
-      state.books.push(action.payload);
+      state.bookItems.push(action.payload);
     },
     removeBook: (state, action) => {
-      state.books = state.books.filter((book) => book.id !== action.payload);
+      const itemId = action.payload;
+      state.bookItems = state.bookItems.filter((item) => item.id !== itemId);
     },
 
   },
