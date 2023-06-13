@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { addBook, removeBook } from './redux/bookSlice';
+import { addBook, removeBook } from '../redux/books/bookSlice';
 import InputBooks from './logic/bookform';
 import BookList from './logic/booklist';
 
