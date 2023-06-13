@@ -18,12 +18,9 @@ const Home = () => {
     localStorage.setItem('books', temp);
   }, [books]);
   const deleteBook = (id) => {
-    const remove = dispatch(removeBook(id));
-    const bookStorage = JSON.parse(localStorage.getItem('books'));
-    const filteredBooks = bookStorage.filter((item) => item.id !== id);
-    const temp = JSON.stringify(filteredBooks);
-    localStorage.setItem('books', temp);
-    setBooks([...books, remove.state]);
+    setBooks([
+      ...books.filter((book) => book.id !== id, dispatch(removeBook())),
+    ]);
   };
   const addBookItem = (cat, tittle, author) => {
     const newBook = dispatch(addBook({

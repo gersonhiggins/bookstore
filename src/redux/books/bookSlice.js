@@ -1,5 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const initial = [
+  {
+    id: 'item1',
+    tittle: 'The Great Gatsby',
+    author: 'John Smith',
+    cat: 'Fiction',
+  },
+  {
+    id: 'item2',
+    tittle: 'Anna Karenina',
+    author: 'Leo Tolstoy',
+    cat: 'Fiction',
+  },
+  {
+    id: 'item3',
+    tittle: 'The Selfish Gene',
+    author: 'Richard Dawkins',
+    cat: 'Nonfiction',
+  },
+];
+const temp = JSON.stringify(initial);
+localStorage.setItem('books', temp);
 const initialState = {
   bookItems: JSON.parse(localStorage.getItem('books')),
 };
