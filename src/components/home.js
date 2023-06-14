@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { addBook, removeBook } from '../redux/books/bookSlice';
+import { addBook, fetchBooks, removeBook } from '../redux/books/bookSlice';
 import InputBooks from './logic/bookform';
 import BookList from './logic/booklist';
 
 const Home = () => {
   const dispatch = useDispatch();
+  const bookList = useSelector((state) => state.book);
   function getInitialBooks() {
-    const temp = localStorage.getItem('books');
-    const savedBooks = JSON.parse(temp);
+    const savedBooks = bookList.bookItems;
     return savedBooks || [];
   }
   const [books, setBooks] = useState(getInitialBooks());
   useEffect(() => {
-    const temp = JSON.stringify(books);
-    localStorage.setItem('books', temp);
-  }, [books]);
+    dispatch(fetchBooks());
+    console.log(bookList.bookItems);
+    setBooks([...books, bookList.bookItems]);
+  }, []);
   const deleteBook = (id) => {
     setBooks([
       ...books.filter((book) => book.id !== id, dispatch(removeBook())),
@@ -33,6 +34,7 @@ const Home = () => {
   };
   return (
     <div className="home-page">
+      {bookList.loading && <div>.....Loading</div>}
       <BookList bookProp={books} deleteBook={deleteBook} />
       <span className="span" />
       <InputBooks addBookItem={addBookItem} />
