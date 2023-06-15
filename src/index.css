@@ -109,7 +109,7 @@ ul {
 h2 {
   width: 10.875rem;
   height: 1.5rem;
-  margin: 1.813rem 32.75rem 1.188rem 0;
+  margin: 0 32.75rem 1.188rem 0;
   font-size: 1.25rem;
   font-weight: bold;
   font-stretch: normal;
@@ -123,6 +123,7 @@ form {
   width: 100%;
   display: flex;
   flex-direction: column;
+  padding-bottom: 50px;
 }
 
 .inputs {
