@@ -23,9 +23,12 @@ export const fetchBooks = createAsyncThunk('book/fetchBooks', async () => {
   }
   return result;
 });
-// export const fetchBooks = createAsyncThunk('book/fetchBooks', () => axios
-//   .get(uniqueApiId)
-//   .then((response) => response.data));
+export const addFetchBook = createAsyncThunk('book/addFetchBook', async (obj) => {
+  await axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/kWYN1eenheRfyNQFSTzX/books', obj);
+});
+export const removeFetchBook = createAsyncThunk('book/removeFetchBook', async (id) => {
+  await axios.delete(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/kWYN1eenheRfyNQFSTzX/books/${id}`);
+});
 export const bookSlice = createSlice({
   name: 'book',
   initialState,
@@ -47,6 +50,4 @@ export const bookSlice = createSlice({
   },
 });
 
-export const { addBook, removeBook } = bookSlice.actions;
-export const bookArray = ({ book }) => book;
 export default bookSlice.reducer;

@@ -4,23 +4,23 @@ import PropTypes from 'prop-types';
 const InputBooks = ({ addBookItem }) => {
   const [cat, setCat] = useState('');
   const [tittle, setTittle] = useState('');
-  const [author, setAuthor] = useState('');
+  const [aut, setAut] = useState('');
   const [message, setMessage] = useState('');
   const handleTittleChange = (e) => {
     setTittle(e.target.value);
   };
   const handleAuthorChange = (e) => {
-    setAuthor(e.target.value);
+    setAut(e.target.value);
   };
   const handleCatChange = (e) => {
     setCat(e.target.value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (tittle.trim() && author.trim() && cat.trim()) {
-      addBookItem(cat, tittle, author);
+    if (tittle.trim() && aut.trim() && cat.trim()) {
+      addBookItem(cat, tittle, aut);
       setTittle('');
-      setAuthor('');
+      setAut('');
       setMessage('');
       setCat('');
     } else {
@@ -42,7 +42,7 @@ const InputBooks = ({ addBookItem }) => {
           <input
             type="text"
             placeholder="author"
-            value={author}
+            value={aut}
             onChange={handleAuthorChange}
             className="input=author"
           />

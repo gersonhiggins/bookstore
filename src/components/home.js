@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { fetchBooks } from '../redux/books/bookSlice';
+import { addFetchBook, removeFetchBook, fetchBooks } from '../redux/books/bookSlice';
 import InputBooks from './logic/bookform';
 
 const Home = () => {
@@ -13,29 +13,19 @@ const Home = () => {
   const [books, setBooks] = useState(getInitialBooks());
   useEffect(() => {
     dispatch(fetchBooks());
-  }, [books]);
+  }, [books, dispatch]);
   const deleteBook = async (id) => {
-    await fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/kWYN1eenheRfyNQFSTzX/books/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    await dispatch(removeFetchBook(id));
     setBooks([...books, bookList.bookItems]);
   };
-  const addBookItem = async (cat, tittle, author) => {
-    await fetch('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/kWYN1eenheRfyNQFSTzX/books', {
-      method: 'POST',
-      body: JSON.stringify({
-        category: cat,
-        title: tittle,
-        author,
-        item_id: uuidv4(),
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+  const addBookItem = async (cat, tittle, aut) => {
+    const obj = {
+      item_id: uuidv4(),
+      author: aut,
+      category: cat,
+      title: tittle,
+    };
+    await dispatch(addFetchBook(obj));
     setBooks([...books, bookList.bookItems]);
   };
   return (
