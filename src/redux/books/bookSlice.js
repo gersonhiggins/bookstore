@@ -23,18 +23,13 @@ export const fetchBooks = createAsyncThunk('book/fetchBooks', async () => {
   }
   return result;
 });
+// export const fetchBooks = createAsyncThunk('book/fetchBooks', () => axios
+//   .get(uniqueApiId)
+//   .then((response) => response.data));
 export const bookSlice = createSlice({
   name: 'book',
   initialState,
-  reducers: {
-    addBook: (state, action) => {
-      state.bookItems.push(action.payload);
-    },
-    removeBook: (state, action) => {
-      const itemId = action.payload;
-      state.bookItems = state.bookItems.filter((item) => item.id !== itemId);
-    },
-  },
+  reducers: {},
   extraReducers: (build) => {
     build.addCase(fetchBooks.pending, (state) => {
       state.loading = true;
