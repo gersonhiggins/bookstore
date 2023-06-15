@@ -32,11 +32,12 @@ ul {
 .book {
   border: 1px solid rgb(207, 207, 207);
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   background-color: white;
   gap: 0;
   padding: 20px;
   margin: 10px 0;
+  align-items: center;
 }
 
 .remove {
@@ -108,7 +109,7 @@ ul {
 h2 {
   width: 10.875rem;
   height: 1.5rem;
-  margin: 1.813rem 32.75rem 1.188rem 0;
+  margin: 0 32.75rem 1.188rem 0;
   font-size: 1.25rem;
   font-weight: bold;
   font-stretch: normal;
@@ -122,6 +123,7 @@ form {
   width: 100%;
   display: flex;
   flex-direction: column;
+  padding-bottom: 50px;
 }
 
 .inputs {
@@ -169,6 +171,104 @@ header {
   margin-top: 95.475px;
 }
 
+.book-content {
+  width: 270px;
+}
+
 .categories {
   margin-top: 95.475px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.outer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+  border: 10px solid #888;
+}
+
+circle {
+  position: relative;
+  fill: none;
+  stroke: #0290ff;
+  stroke-width: 10px;
+  stroke-dasharray: 250;
+  stroke-dashoffset: 250;
+  animation: anim 2s linear forwards;
+}
+
+svg {
+  position: absolute;
+  transform: rotate(-88deg);
+}
+
+@keyframes anim {
+  100% {
+    stroke-dashoffset: 125;
+  }
+}
+
+.chapter button {
+  margin-bottom: 16px;
+  background-color: #0290ff;
+  border: none;
+  padding: 8px;
+  border-radius: 3px;
+  color: white;
+}
+
+.current {
+  color: #888;
+}
+
+.c-chapter {
+  color: black;
+  font-weight: bold;
+}
+
+.v-span {
+  width: 1px;
+  height: 90px;
+  background-color: #c5c5c5;
+}
+
+@media screen and (max-width: 950px) {
+  .book {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .v-span {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 574px) {
+  body {
+    margin: 177px 10px;
+  }
+
+  .menu {
+    flex-direction: column;
+    padding-bottom: 20px;
+  }
+
+  header {
+    padding-left: 20px;
+  }
 }
