@@ -36,10 +36,41 @@ const Home = () => {
           {
             bookList.bookItems.map((book) => (
               <li className="book" key={book.id}>
-                <p className="category">{book.cat}</p>
-                <p className="tittle">{book.tittle}</p>
-                <p className="author">{book.author}</p>
-                <button type="button" className="remove" onClick={() => deleteBook(book.id)}>Remove</button>
+                <div className="book-content">
+                  <p className="category">{book.cat}</p>
+                  <p className="tittle">{book.tittle}</p>
+                  <p className="author">{book.author}</p>
+                  <div className="buttons">
+                    <button type="button" className="remove">Comments</button>
+                    <button type="button" className="remove" onClick={() => deleteBook(book.id)}>Remove</button>
+                    <button type="button" className="remove">Edit</button>
+                  </div>
+                </div>
+                <div className="info">
+                  <div className="donut">
+                    <div className="outer">
+                      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width=" 90px" height="90px">
+                        <defs>
+                          <linearGradient id="GradientColor">
+                            <stop offset="0%" stopColor="#e91e63" />
+                            <stop offset="100%" stopColor="#673ab7" />
+                          </linearGradient>
+                        </defs>
+                        <circle cx="45" cy="45" r="40" strokeLinecap="round" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="completed">
+                    <p className="porcentage">50%</p>
+                    <p className="category">Completed</p>
+                  </div>
+                  <span className="v-span" />
+                </div>
+                <div className="chapter">
+                  <p className="current">Current Chapter</p>
+                  <p className="c-chapter">Chapter 1</p>
+                  <button type="button" className="update-chapter">UPDATE PROGRESS</button>
+                </div>
               </li>
             ))
           }
